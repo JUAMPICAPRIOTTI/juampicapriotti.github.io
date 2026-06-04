@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Pablo Capriotti — Administración y Políticas Públicas</title>
+<meta name="description" content="Análisis y columnas sobre políticas públicas y gestión estatal en los tres niveles de gobierno: nacional, provincial y municipal.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://juampicapriotti.github.io/">
+<meta property="og:title" content="Juan Pablo Capriotti — Administración y Políticas Públicas">
+<meta property="og:description" content="Análisis y columnas sobre políticas públicas y gestión estatal en los tres niveles de gobierno.">
+<meta property="og:image" content="https://juampicapriotti.github.io/img/portada-genero.jpg">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Juan Pablo Capriotti — Administración y Políticas Públicas">
+<meta name="twitter:description" content="Análisis y columnas sobre políticas públicas y gestión estatal en los tres niveles de gobierno.">
+<meta name="twitter:image" content="https://juampicapriotti.github.io/img/portada-genero.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#16243a;
+    --ink-soft:#3a4a63;
+    --paper:#fbfaf7;
+    --line:#e3ddd2;
+    --blue:#16365e;
+    --blue-deep:#0f243f;
+    --gold:#b08436;
+    --grey:#6b7280;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:'Source Serif 4',Georgia,serif;line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .dateline{
+    background:var(--blue-deep);color:#dfe6f0;font-family:'Inter',sans-serif;
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 16px;
+  }
+
+  /* Masthead */
+  header.masthead{border-bottom:1px solid var(--line);background:#fff}
+  .masthead .in{max-width:1040px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:24px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  .brand span{color:var(--gold)}
+  nav{display:flex;gap:22px;font-family:'Inter',sans-serif;font-size:14px}
+  nav a{color:var(--ink-soft);text-decoration:none}
+  nav a:hover{color:var(--blue)}
+
+  main{max-width:1040px;margin:0 auto;padding:44px 24px}
+
+  /* Featured */
+  .featured{display:grid;grid-template-columns:1.15fr 1fr;gap:34px;align-items:center;margin-bottom:18px}
+  .featured .thumb{overflow:hidden;border-radius:4px}
+  .featured .thumb img{width:100%;height:100%;display:block;object-fit:cover;aspect-ratio:1200/700}
+  .kicker{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:inline-block}
+  .featured h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,3.4vw,36px);line-height:1.12;letter-spacing:-.015em;margin-bottom:14px}
+  .featured h2 a{text-decoration:none}
+  .featured h2 a:hover{color:var(--blue)}
+  .featured .summary{font-size:18px;color:var(--ink-soft);margin-bottom:16px}
+  .featured .meta,.card .meta{font-family:'Inter',sans-serif;font-size:13px;color:var(--grey)}
+  .readmore{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;display:inline-block;margin-top:10px}
+  .readmore:hover{color:var(--gold)}
+
+  /* Section title */
+  .section-title{display:flex;align-items:center;gap:16px;margin:48px 0 24px}
+  .section-title h3{font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:var(--ink);white-space:nowrap}
+  .section-title::after{content:"";height:1px;background:var(--line);flex:1}
+
+  /* Cards grid */
+  .articles{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:5px;overflow:hidden;transition:transform .15s ease,box-shadow .15s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px -16px rgba(15,36,63,.4)}
+  .card a{text-decoration:none;display:block}
+  .card .thumb{aspect-ratio:16/9;overflow:hidden}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .body{padding:18px 20px 22px}
+  .card .category{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .card h3{font-family:'Fraunces',serif;font-weight:600;font-size:20px;line-height:1.2;color:var(--ink);margin-bottom:8px}
+  .card p{font-size:15.5px;color:var(--ink-soft);margin-bottom:12px}
+
+  /* Bio */
+  .bio{display:flex;gap:26px;align-items:center;margin:56px 0 8px;padding:30px;background:#fff;border:1px solid var(--line);border-radius:6px}
+  .bio .photo{flex:none;width:104px;height:104px;border-radius:50%;overflow:hidden;border:3px solid var(--gold)}
+  .bio .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .bio .role{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+  .bio h4{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--ink);margin-bottom:8px}
+  .bio p{font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+
+  footer{border-top:1px solid var(--line);background:#fff;margin-top:40px}
+  footer .in{max-width:1040px;margin:0 auto;padding:30px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  footer .fbrand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--ink)}
+  footer .fbrand span{color:var(--gold)}
+  footer .links{display:flex;gap:18px;font-family:'Inter',sans-serif;font-size:13.5px}
+  footer .links a{color:var(--ink-soft);text-decoration:none}
+  footer .links a:hover{color:var(--blue)}
+  footer .copy{width:100%;font-family:'Inter',sans-serif;font-size:12px;color:var(--grey);border-top:1px solid var(--line);padding-top:14px}
+
+  @media (max-width:760px){
+    .featured{grid-template-columns:1fr;gap:20px}
+    .articles{grid-template-columns:1fr}
+    .bio{flex-direction:column;text-align:center}
+    .bio .photo{margin:0 auto}
+    nav{font-size:13px;gap:16px}
+  }
+</style>
+</head>
+<body>
+
+<div class="dateline">Buenos Aires, Argentina · Análisis de Políticas Públicas · Tres niveles de gobierno</div>
+
+<header class="masthead">
+  <div class="in">
+    <a class="brand" href="index.html">Juan Pablo <span>Capriotti</span></a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="#articulos">Artículos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="mailto:tu-email@ejemplo.com">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ARTÍCULO DESTACADO -->
+  <section class="featured">
+    <div class="thumb">
+      <a href="politicas-genero-milei.html"><img src="img/portada-genero.jpg" alt="Movilización por las políticas de género frente al exMinisterio de Mujeres"></a>
+    </div>
+    <div>
+      <span class="kicker">Política nacional · Análisis</span>
+      <h2><a href="politicas-genero-milei.html">El Estado que se corre: anatomía del desarme de las políticas de género (2023–2026)</a></h2>
+      <p class="summary">Una lectura desde la administración pública: qué se desarmó, cómo y con qué consecuencias en las políticas de género bajo la gestión de Milei.</p>
+      <div class="meta">3 de junio, 2026 · 9 min de lectura</div>
+      <a class="readmore" href="politicas-genero-milei.html">Leer el análisis →</a>
+    </div>
+  </section>
+
+  <!-- PUBLICACIONES RECIENTES -->
+  <div class="section-title" id="articulos"><h3>Publicaciones recientes</h3></div>
+
+  <section class="articles">
+
+    <article class="card">
+      <a href="articulo-aumentos-junio.html">
+        <div class="thumb"><img src="img/portada-aumentos.jpg" alt="La ronda de aumentos de junio de 2026"></div>
+        <div class="body">
+          <div class="category">Economía · Coyuntura</div>
+          <h3>La ronda de aumentos de junio de 2026</h3>
+          <p>Qué sube desde el 1 de junio y cómo impacta en el poder adquisitivo: una lectura de economía política.</p>
+          <div class="meta">1 de junio, 2026 · 12 min de lectura</div>
+        </div>
+      </a>
+    </article>
+
+    <article class="card">
+      <a href="flow-onda-politicas-publicas.html">
+        <div class="thumb"><img src="img/iraeta-flow.jpg" alt="Sergio Iraeta en el Congreso Maizar 2026"></div>
+        <div class="body">
+          <div class="category">Comunicación política</div>
+          <h3>Flow, onda y otras políticas públicas: crónica de un aplauso que no llegó</h3>
+          <p>Anatomía de un error de comunicación pública en el Congreso Maizar 2026.</p>
+          <div class="meta">28 de mayo, 2026 · 8 min de lectura</div>
+        </div>
+      </a>
+    </article>
+
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="bio" id="sobre-mi">
+    <div class="photo"><img src="img/perfil.jpg" alt="Foto de Juan Pablo Capriotti"></div>
+    <div>
+      <div class="role">Sobre el autor</div>
+      <h4>Juan Pablo Capriotti</h4>
+      <p>Técnico en Administración Pública. Este espacio reúne mis trabajos, análisis y columnas sobre políticas públicas y gestión estatal en los tres niveles de gobierno: nacional, provincial y municipal. Próximamente Licenciado en Administración Pública.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="in">
+    <div class="fbrand">Juan Pablo <span>Capriotti</span></div>
+    <div class="links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter / X</a>
+      <a href="mailto:tu-email@ejemplo.com">Contacto</a>
+    </div>
+    <div class="copy">© 2026 Juan Pablo Capriotti · Administración y Políticas Públicas. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+</body>
+</html>
