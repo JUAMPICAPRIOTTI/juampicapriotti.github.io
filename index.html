@@ -1,321 +1,430 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juan Pablo Capriotti — Análisis político y de gestión pública</title>
-<meta name="description" content="Análisis sobre política argentina y gestión pública. Nota destacada: corrupción, economía y el dilema del discurso anticasta de Javier Milei.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juan Pablo Capriotti — Administración y política pública</title>
+<meta name="description" content="Análisis de coyuntura, instituciones y administración del Estado en los tres niveles de gobierno. Por Juan Pablo Capriotti, técnico en administración pública.">
 
-<!-- Open Graph (vista previa al compartir en redes) -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="Corrupción, economía e incoherencia: el dilema del discurso anticasta de Javier Milei">
-<meta property="og:description" content="Cómo impactan los escándalos de corrupción y el freno económico en la imagen de un gobierno que llegó con la bandera anticasta.">
-<meta property="og:image" content="https://juampicapriotti.github.io/img/imagen-vs-inflacion-milei.png">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://juampicapriotti.github.io/">
+<meta property="og:title" content="Juan Pablo Capriotti — Administración y política pública">
+<meta property="og:description" content="Análisis de coyuntura, instituciones y administración del Estado en los tres niveles de gobierno.">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Juan Pablo Capriotti">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --navy:#16314f;
-    --navy-deep:#0e1e30;
-    --gold:#c29b40;
-    --gold-soft:#d8bc78;
-    --cream:#f8f4ea;
-    --cream-card:#fffdf7;
-    --ink:#1e2329;
-    --muted:#5c6470;
-    --line:#e3dcc9;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'IBM Plex Sans',system-ui,sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+:root{
+  /* Paleta: papel de oficio, tinta ferrogálica, sello dorado */
+  --papel:      #F4EFE1;
+  --papel-hond: #EBE3CF;
+  --tinta:      #101F35;
+  --tinta-med:  #3D4F66;
+  --tinta-suave:#55677C;
+  --oro:        #A07B25;
+  --oro-claro:  #C7A651;
+  --linea:      #D8CDB4;
 
-  /* Dateline */
-  .dateline{
-    background:var(--navy-deep);color:#cdd6e0;
-    font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
-    padding:8px 0;
-  }
-  .dateline .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
-  .dateline span:last-child{color:var(--gold-soft)}
+  --medida: 68ch;          /* medida de lectura */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --max: 1180px;
+}
 
-  /* Masthead */
-  .masthead{text-align:center;padding:42px 0 18px;border-bottom:1px solid var(--line)}
-  .masthead .kicker{
-    font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;
-    color:var(--gold);font-weight:600;margin-bottom:12px;
-  }
-  .masthead h1{
-    font-family:'Cormorant Garamond',serif;font-weight:700;
-    font-size:clamp(2.6rem,7vw,4.4rem);line-height:1;color:var(--navy);
-    letter-spacing:.01em;
-  }
-  .masthead .tagline{
-    font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:clamp(1.05rem,2.5vw,1.35rem);color:var(--muted);margin-top:10px;
-  }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--papel);
+  color:var(--tinta);
+  font-family:"Public Sans",system-ui,-apple-system,sans-serif;
+  font-size:1.0625rem;
+  line-height:1.7;
+  font-feature-settings:"tnum" 0;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--oro);outline-offset:3px;border-radius:2px}
 
-  /* Nav */
-  nav{border-bottom:2px solid var(--navy);position:sticky;top:0;z-index:20;
-      background:var(--cream)}
-  nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;gap:34px;
-         padding:14px 0}
-  nav a{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
-        color:var(--navy);padding:4px 2px;border-bottom:2px solid transparent;transition:.2s}
-  nav a:hover,nav a:focus-visible{border-color:var(--gold);color:var(--gold)}
+.contenedor{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
 
-  /* Featured */
-  .featured{padding:54px 0 20px}
-  .eyebrow{
-    display:inline-block;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
-    font-weight:700;color:#fff;background:var(--gold);padding:5px 14px;border-radius:2px;
-    margin-bottom:22px;
-  }
-  .featured h2{
-    font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--navy);
-    font-size:clamp(2rem,5.2vw,3.3rem);line-height:1.07;letter-spacing:.005em;
-    max-width:18ch;
-  }
-  .featured .standfirst{
-    font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.6vw,1.5rem);
-    color:#33414f;margin-top:18px;max-width:62ch;line-height:1.45;
-  }
-  .byline{
-    display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px;
-    font-size:.86rem;color:var(--muted);
-  }
-  .byline strong{color:var(--navy);font-weight:600}
-  .byline .dot{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+/* ---------- Barra superior ---------- */
+.barra{
+  background:var(--tinta);
+  color:#CBB98C;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.barra .contenedor{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:1rem;min-height:38px;
+}
+.barra time{font-variant-numeric:tabular-nums}
 
-  .figure{
-    margin:30px 0 8px;border:1px solid var(--line);background:var(--cream-card);
-    padding:14px;border-radius:4px;box-shadow:0 14px 34px -22px rgba(14,30,48,.5);
-  }
-  .figure img{display:block;width:100%;height:auto;border-radius:2px}
-  .figure figcaption{
-    font-size:.8rem;color:var(--muted);margin-top:12px;padding:0 4px;
-    border-left:3px solid var(--gold);padding-left:12px;
-  }
+/* ---------- Cabecera: nombre a la izquierda, navegación a la derecha ---------- */
+.cabecera{
+  border-bottom:1px solid var(--linea);
+  background:var(--papel);
+  position:sticky;top:0;z-index:20;
+}
+.cabecera .contenedor{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:2rem;padding-block:1.05rem;
+}
+.marca{text-decoration:none;display:block}
+.marca .rubro{
+  font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--oro);margin-bottom:.28rem;
+}
+.marca .nombre{
+  font-family:Spectral,Georgia,serif;
+  font-weight:700;
+  font-size:clamp(1.5rem,3.2vw,2.05rem);
+  line-height:1;letter-spacing:-.012em;
+  margin:0;
+}
+.marca .bajada-marca{
+  font-size:.8rem;color:var(--tinta-suave);margin-top:.3rem;
+}
+.nav{display:flex;gap:1.6rem;flex-wrap:wrap}
+.nav a{
+  text-decoration:none;font-size:.76rem;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--tinta-med);
+  padding-block:.35rem;border-bottom:2px solid transparent;
+  transition:color .15s ease,border-color .15s ease;
+}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--tinta);border-bottom-color:var(--oro)}
 
-  .read-link{
-    display:inline-flex;align-items:center;gap:10px;margin-top:24px;
-    font-weight:600;letter-spacing:.04em;color:var(--navy);
-    border-bottom:2px solid var(--gold);padding-bottom:3px;transition:.2s;
-  }
-  .read-link:hover,.read-link:focus-visible{gap:16px;color:var(--gold)}
+/* ---------- Destacada: carátula ---------- */
+.caratula{padding-block:clamp(2.5rem,6vw,4.25rem) clamp(2rem,5vw,3.5rem)}
+.caratula .contenedor{
+  display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+  gap:clamp(2rem,5vw,4rem);align-items:start;
+}
+.etiqueta{
+  display:inline-block;background:var(--oro);color:var(--papel);
+  font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:.35rem .7rem;border-radius:2px;
+}
+.titular{
+  font-family:Spectral,Georgia,serif;
+  font-weight:700;
+  font-size:clamp(2.1rem,5.2vw,3.5rem);
+  line-height:1.08;letter-spacing:-.02em;
+  margin:1.1rem 0 0;max-width:19ch;
+  text-wrap:balance;
+}
+.titular a{text-decoration:none;background-image:linear-gradient(var(--oro-claro),var(--oro-claro));
+  background-size:0 2px;background-repeat:no-repeat;background-position:0 100%;
+  transition:background-size .25s ease}
+.titular a:hover{background-size:100% 2px}
+.copete{
+  font-size:1.08rem;color:var(--tinta-med);
+  margin:1.15rem 0 0;max-width:52ch;
+}
+.leer{
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;
+  font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tinta);text-decoration:none;
+  border-bottom:2px solid var(--oro);padding-bottom:.3rem;
+}
+.leer span{transition:transform .2s ease;display:inline-block}
+.leer:hover span{transform:translateX(4px)}
 
-  /* Section heading */
-  .sec-head{
-    display:flex;align-items:center;gap:18px;margin:60px 0 26px;
-  }
-  .sec-head h3{
-    font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--navy);
-    font-size:clamp(1.5rem,3.6vw,2.1rem);white-space:nowrap;
-  }
-  .sec-head::after{content:"";height:1px;background:var(--line);flex:1}
+/* Ficha de datos: los campos de una carátula de expediente */
+.ficha{
+  border:1px solid var(--linea);border-top:3px solid var(--tinta);
+  background:rgba(255,255,255,.4);
+  padding:1.35rem 1.4rem;border-radius:2px;
+}
+.ficha h2{
+  font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--tinta-suave);margin:0 0 1rem;
+}
+.ficha dl{margin:0;display:grid;gap:.85rem}
+.ficha dt{
+  font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--tinta-suave);
+}
+.ficha dd{margin:.15rem 0 0;font-size:.95rem;font-weight:500;font-variant-numeric:tabular-nums}
 
-  /* Recent grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:26px;
-        padding-bottom:20px}
-  .card{
-    background:var(--cream-card);border:1px solid var(--line);border-radius:4px;
-    overflow:hidden;display:flex;flex-direction:column;transition:.22s;
-  }
-  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(14,30,48,.55);
-              border-color:var(--gold-soft)}
-  .card .thumb{aspect-ratio:16/10;background:var(--navy);overflow:hidden}
-  .card .thumb img{width:100%;height:100%;object-fit:cover}
-  .card .body{padding:20px 20px 24px;display:flex;flex-direction:column;flex:1}
-  .card .cat{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-             color:var(--gold);font-weight:700;margin-bottom:10px}
-  .card h4{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--navy);
-           font-size:1.5rem;line-height:1.12;margin-bottom:10px}
-  .card p{font-size:.92rem;color:var(--muted);flex:1}
-  .card .meta{font-size:.76rem;color:var(--muted);margin-top:16px;
-              padding-top:14px;border-top:1px solid var(--line)}
-  .card.soon{background:repeating-linear-gradient(45deg,#f3eee0,#f3eee0 14px,#efe9d8 14px,#efe9d8 28px);
-             opacity:.85;justify-content:center;align-items:center;text-align:center;
-             min-height:240px}
-  .card.soon span{font-family:'Cormorant Garamond',serif;font-style:italic;
-                  font-size:1.35rem;color:var(--muted)}
+/* ---------- Índice de notas ---------- */
+.seccion{padding-block:clamp(2.25rem,5vw,3.5rem);border-top:1px solid var(--linea)}
+.encabezado-seccion{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:1.5rem;flex-wrap:wrap;margin-bottom:1.75rem;
+}
+.encabezado-seccion h2{
+  font-family:Spectral,Georgia,serif;font-size:1.5rem;font-weight:600;margin:0;
+  letter-spacing:-.01em;
+}
+.filtros{display:flex;gap:.4rem;flex-wrap:wrap}
+.filtros button{
+  font:inherit;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tinta-med);background:transparent;border:1px solid var(--linea);
+  padding:.4rem .75rem;border-radius:2px;cursor:pointer;
+  transition:background .15s ease,color .15s ease,border-color .15s ease;
+}
+.filtros button:hover{border-color:var(--oro)}
+.filtros button[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
 
-  /* About */
-  .about{
-    margin:64px 0 20px;background:var(--navy);color:#e8eef4;border-radius:6px;
-    padding:clamp(28px,5vw,46px);display:grid;grid-template-columns:auto 1fr;gap:30px;
-    align-items:center;
-  }
-  .about .mono{
-    width:108px;height:108px;border-radius:50%;flex-shrink:0;
-    background:var(--gold);color:var(--navy-deep);
-    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:2.6rem;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .about h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2rem;
-            margin-bottom:8px}
-  .about .role{color:var(--gold-soft);font-size:.84rem;letter-spacing:.12em;
-               text-transform:uppercase;margin-bottom:14px}
-  .about p{color:#cdd6e0;max-width:60ch}
+.nota{
+  display:grid;grid-template-columns:5.5rem minmax(0,1fr);
+  gap:clamp(1rem,3vw,2.25rem);
+  padding:1.5rem 0 1.5rem;
+  border-top:1px solid var(--linea);
+  position:relative;
+}
+.nota:first-of-type{border-top:0}
+.nota::before{ /* línea de margen, como el foliado de un expediente */
+  content:"";position:absolute;left:4.15rem;top:0;bottom:0;width:1px;
+  background:var(--linea);
+}
+.foja{
+  font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tinta-suave);font-variant-numeric:tabular-nums;line-height:1.5;
+  padding-top:.3rem;
+}
+.foja .nivel{display:block;color:var(--oro);margin-bottom:.3rem}
+.nota h3{
+  font-family:Spectral,Georgia,serif;font-size:clamp(1.25rem,2.6vw,1.6rem);
+  font-weight:600;line-height:1.25;margin:0;letter-spacing:-.012em;max-width:32ch;
+}
+.nota h3 a{text-decoration:none}
+.nota h3 a:hover{color:var(--oro)}
+.nota p{margin:.6rem 0 0;color:var(--tinta-med);font-size:.98rem;max-width:62ch}
+.nota .pie{
+  margin-top:.75rem;font-size:.76rem;color:var(--tinta-suave);
+  font-variant-numeric:tabular-nums;
+}
 
-  /* Footer */
-  footer{background:var(--navy-deep);color:#aeb9c6;margin-top:64px;
-         padding:44px 0 30px}
-  footer .cols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;
-               align-items:flex-end}
-  footer .brand{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:#fff}
-  footer .links{display:flex;gap:22px;flex-wrap:wrap}
-  footer .links a{font-size:.84rem;letter-spacing:.06em;border-bottom:1px solid transparent;
-                  transition:.2s}
-  footer .links a:hover,footer .links a:focus-visible{color:var(--gold-soft);
-                  border-color:var(--gold-soft)}
-  footer .copy{font-size:.76rem;color:#6f7d8c;margin-top:26px;
-               border-top:1px solid #1d3148;padding-top:18px}
+/* ---------- Perfil ---------- */
+.perfil{border-top:1px solid var(--linea);background:var(--papel-hond)}
+.perfil .contenedor{
+  padding-block:clamp(2.5rem,5vw,3.5rem);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);
+  gap:clamp(1.5rem,4vw,3.5rem);align-items:start;
+}
+.perfil h2{
+  font-family:Spectral,Georgia,serif;font-size:1.6rem;font-weight:600;margin:0;
+  letter-spacing:-.01em;
+}
+.perfil .rubro{
+  font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--oro);margin-bottom:.5rem;
+}
+.perfil p{margin:0 0 1rem;max-width:var(--medida);color:var(--tinta-med)}
+.perfil p:last-child{margin-bottom:0}
 
-  @media(max-width:620px){
-    .about{grid-template-columns:1fr;text-align:center;justify-items:center}
-    nav ul{gap:20px}
-  }
-  @media(prefers-reduced-motion:reduce){
-    *{transition:none!important;scroll-behavior:auto!important}
-  }
+/* ---------- Pie ---------- */
+.pie-sitio{background:var(--tinta);color:#C6D0DD;padding-block:2.5rem}
+.pie-sitio .contenedor{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.pie-sitio a{color:#E4D5AB;text-decoration:none;border-bottom:1px solid rgba(228,213,171,.35)}
+.pie-sitio a:hover{border-bottom-color:#E4D5AB}
+.pie-sitio .nombre-pie{font-family:Spectral,Georgia,serif;font-size:1.25rem;color:var(--papel);margin:0 0 .35rem}
+.pie-sitio p{margin:0;font-size:.9rem}
+.enlaces-pie{display:flex;gap:1.25rem;flex-wrap:wrap;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+
+/* ---------- Adaptación a pantallas chicas ---------- */
+@media (max-width:900px){
+  .cabecera{position:static}
+  .cabecera .contenedor{flex-direction:column;align-items:flex-start;gap:1rem}
+  .caratula .contenedor,
+  .perfil .contenedor{grid-template-columns:1fr}
+  .titular{max-width:none}
+}
+@media (max-width:620px){
+  .barra .contenedor{font-size:.65rem}
+  .nota{grid-template-columns:1fr;gap:.5rem}
+  .nota::before{display:none}
+  .foja{display:flex;gap:.9rem;padding-top:0}
+  .foja .nivel{margin-bottom:0}
+  .nav{gap:1.1rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
 </style>
 </head>
 <body>
 
-  <!-- Dateline -->
-  <div class="dateline">
-    <div class="wrap">
-      <span>Buenos Aires, Argentina</span>
-      <span>Viernes 12 de junio de 2026</span>
-    </div>
+<div class="barra">
+  <div class="contenedor">
+    <span>Buenos Aires, Argentina</span>
+    <time id="fecha" datetime="2026-08-04">Martes 4 de agosto de 2026</time>
   </div>
+</div>
 
-  <!-- Masthead -->
-  <header class="masthead">
-    <div class="wrap">
-      <div class="kicker">Política · Gestión pública</div>
-      <h1>Juan Pablo Capriotti</h1>
-      <div class="tagline">Análisis de coyuntura, instituciones y administración del Estado</div>
-    </div>
-  </header>
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="index.html">
+      <div class="rubro">Política · Gestión pública</div>
+      <h1 class="nombre">Juan Pablo Capriotti</h1>
+      <div class="bajada-marca">Análisis de coyuntura, instituciones y administración del Estado</div>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="articulos.html">Artículos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Nav -->
-  <nav>
-    <div class="wrap">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="#recientes">Artículos</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
+<main>
 
-  <!-- Featured -->
-  <main>
-  <section class="featured">
-    <div class="wrap">
-      <span class="eyebrow">Nota destacada</span>
-      <h2>Corrupción, economía e incoherencia: el dilema del discurso anticasta de Milei</h2>
-      <p class="standfirst">Llegó al poder prometiendo terminar con la corrupción y “la casta”. Hoy una seguidilla de escándalos golpea a su entorno justo cuando el escudo económico se debilita. ¿Cómo se espera que impacte en un gobierno que hizo de la honestidad su marca?</p>
-
-      <div class="byline">
-        <strong>Por Juan Pablo Capriotti</strong>
-        <span class="dot"></span>
-        <span>Técnico en Administración Pública (UNSAM)</span>
-        <span class="dot"></span>
-        <span>12 jun 2026 · 9 min de lectura</span>
+  <!-- ============ NOTA DESTACADA ============ -->
+  <section class="caratula" aria-labelledby="destacada">
+    <div class="contenedor">
+      <div>
+        <span class="etiqueta">Nota destacada</span>
+        <h2 class="titular" id="destacada">
+          <a href="corrupcion-economia-incoherencia.html">Corrupción, economía e incoherencia: el dilema del discurso público</a>
+        </h2>
+        <p class="copete">
+          Cuando el diagnóstico sobre la corrupción no coincide con las decisiones de gestión,
+          el costo no lo paga el discurso: lo paga la capacidad del Estado para sostener una política en el tiempo.
+        </p>
+        <a class="leer" href="corrupcion-economia-incoherencia.html">Leer la nota <span>→</span></a>
       </div>
 
-      <figure class="figure">
-        <img src="img/imagen-vs-inflacion-milei.png"
-             alt="Gráfico que cruza la imagen positiva y negativa de Milei con la inflación mensual y las fechas de los escándalos de corrupción.">
-        <figcaption>La imagen presidencial frente a la inflación mensual y los escándalos de corrupción. El deterioro se acelera cuando se agota la desinflación. Fuentes: Giacobbe e INDEC, vía cobertura periodística.</figcaption>
-      </figure>
-
-      <a class="read-link" href="articulo-milei-corrupcion.html">Leer el análisis completo &rarr;</a>
+      <!-- Ficha: los campos de una carátula de expediente -->
+      <aside class="ficha">
+        <h2>Ficha de la nota</h2>
+        <dl>
+          <div><dt>Tema</dt><dd>Transparencia y control</dd></div>
+          <div><dt>Nivel de gobierno</dt><dd>Nacional</dd></div>
+          <div><dt>Publicada</dt><dd>12 de junio de 2026</dd></div>
+          <div><dt>Extensión</dt><dd>9 minutos de lectura</dd></div>
+        </dl>
+      </aside>
     </div>
   </section>
 
-  <!-- Recientes -->
-  <section id="recientes">
-    <div class="wrap">
-      <div class="sec-head"><h3>Publicaciones recientes</h3></div>
-      <div class="grid">
+  <!-- ============ ÍNDICE DE NOTAS ============ -->
+  <section class="seccion" aria-labelledby="indice">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2 id="indice">Últimas notas</h2>
+        <div class="filtros" role="group" aria-label="Filtrar por nivel de gobierno">
+          <button type="button" data-nivel="todas" aria-pressed="true">Todas</button>
+          <button type="button" data-nivel="nacion" aria-pressed="false">Nación</button>
+          <button type="button" data-nivel="provincia" aria-pressed="false">Provincia</button>
+          <button type="button" data-nivel="municipio" aria-pressed="false">Municipio</button>
+          <button type="button" data-nivel="analisis" aria-pressed="false">Análisis</button>
+        </div>
+      </div>
 
-        <article class="card">
-          <a href="articulo-milei-corrupcion.html">
-            <div class="thumb"><img src="img/imagen-vs-inflacion-milei.png" alt="Imagen de Milei vs. inflación"></div>
-          </a>
-          <div class="body">
-            <div class="cat">Análisis político</div>
-            <h4><a href="articulo-milei-corrupcion.html">El dilema anticasta de Milei</a></h4>
-            <p>Escándalos de corrupción, freno económico y caída de imagen: qué dicen los datos y la teoría sobre el impacto.</p>
-            <div class="meta">12 jun 2026 · Análisis</div>
+      <div id="listado">
+
+        <!-- REEMPLAZAR: copiá este bloque para cada nota nueva.
+             data-nivel debe ser: nacion | provincia | municipio | analisis -->
+        <article class="nota" data-nivel="nacion">
+          <div class="foja"><span class="nivel">Nación</span>Foja 018</div>
+          <div>
+            <h3><a href="corrupcion-economia-incoherencia.html">Corrupción, economía e incoherencia: el dilema del discurso público</a></h3>
+            <p>El desfasaje entre lo que se declara y lo que se ejecuta, y por qué termina erosionando la capacidad estatal.</p>
+            <p class="pie">12 de junio de 2026 · 9 min</p>
           </div>
         </article>
 
-        <article class="card">
-          <a href="articulo-aumentos-junio.html">
-            <div class="thumb"><img src="img/portada-aumentos.jpg" alt="Aumentos de junio"></div>
-          </a>
-          <div class="body">
-            <div class="cat">Economía</div>
-            <h4><a href="articulo-aumentos-junio.html">Los aumentos que rigen desde el 1 de junio</a></h4>
-            <p>Tarifas, transporte y servicios: qué sube este mes y cómo impacta en el bolsillo.</p>
-            <div class="meta">1 jun 2026 · Nota</div>
+        <!-- NOTAS DE EJEMPLO: reemplazalas por las tuyas -->
+        <article class="nota" data-nivel="municipio">
+          <div class="foja"><span class="nivel">Municipio</span>Foja 017</div>
+          <div>
+            <h3><a href="#">Presupuesto municipal: leer el gasto antes de discutir el discurso</a></h3>
+            <p>Guía práctica para interpretar una ordenanza de presupuesto y detectar dónde está la política pública real.</p>
+            <p class="pie">Nota de ejemplo · 7 min</p>
           </div>
         </article>
 
-        <article class="card soon">
-          <span>Próximamente</span>
+        <article class="nota" data-nivel="provincia">
+          <div class="foja"><span class="nivel">Provincia</span>Foja 016</div>
+          <div>
+            <h3><a href="#">Transferencias provinciales: qué queda del federalismo fiscal</a></h3>
+            <p>Coparticipación, transferencias discrecionales y el margen concreto que le queda a una provincia para planificar.</p>
+            <p class="pie">Nota de ejemplo · 11 min</p>
+          </div>
+        </article>
+
+        <article class="nota" data-nivel="analisis">
+          <div class="foja"><span class="nivel">Análisis</span>Foja 015</div>
+          <div>
+            <h3><a href="#">Digitalizar el trámite no es modernizar el Estado</a></h3>
+            <p>Qué diferencia hay entre poner un formulario en línea y rediseñar el proceso administrativo que hay detrás.</p>
+            <p class="pie">Nota de ejemplo · 6 min</p>
+          </div>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- Sobre mí -->
-  <section id="sobre-mi">
-    <div class="wrap">
-      <div class="about">
-        <div class="mono">JC</div>
-        <div>
-          <h3>Sobre mí</h3>
-          <div class="role">Técnico en Administración Pública · UNSAM</div>
-          <p>Escribo sobre política argentina, instituciones y gestión del Estado, con foco en traducir la coyuntura en análisis claros y basados en datos. Este espacio reúne mis notas y trabajos para compartir y debatir.</p>
-        </div>
+  <!-- ============ PERFIL ============ -->
+  <section class="perfil" aria-labelledby="perfil">
+    <div class="contenedor">
+      <div>
+        <div class="rubro">Quién escribe</div>
+        <h2 id="perfil">Juan Pablo Capriotti</h2>
+      </div>
+      <div>
+        <p>Técnico en administración pública. Escribo sobre políticas públicas y administración del Estado en los tres niveles de gobierno: qué se decide, con qué instrumentos y qué capacidad hay para sostenerlo.</p>
+        <p>La idea de este sitio es simple: publicar análisis que se puedan leer sin ser especialista, pero que no le bajen el precio al tema.</p>
       </div>
     </div>
   </section>
-  </main>
 
-  <!-- Footer -->
-  <footer id="contacto">
-    <div class="wrap">
-      <div class="cols">
-        <div class="brand">Juan Pablo Capriotti</div>
-        <div class="links">
-          <a href="mailto:tu-email@ejemplo.com">Email</a>
-          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="#" target="_blank" rel="noopener">X / Twitter</a>
-        </div>
-      </div>
-      <div class="copy">© 2026 Juan Pablo Capriotti · Análisis político y de gestión pública. Todos los derechos reservados.</div>
+</main>
+
+<footer class="pie-sitio">
+  <div class="contenedor">
+    <div>
+      <p class="nombre-pie">Juan Pablo Capriotti</p>
+      <p>Administración y política pública · Buenos Aires, Argentina</p>
     </div>
-  </footer>
+    <nav class="enlaces-pie" aria-label="Enlaces del pie">
+      <a href="articulos.html">Artículos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Fecha del día en la barra superior, para que no quede vieja.
+(function(){
+  var el=document.getElementById('fecha');
+  if(!el)return;
+  var hoy=new Date();
+  var txt=hoy.toLocaleDateString('es-AR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  el.textContent=txt.charAt(0).toUpperCase()+txt.slice(1);
+  el.setAttribute('datetime',hoy.toISOString().slice(0,10));
+})();
+
+// Filtro por nivel de gobierno.
+(function(){
+  var botones=document.querySelectorAll('.filtros button');
+  var notas=document.querySelectorAll('#listado .nota');
+  botones.forEach(function(b){
+    b.addEventListener('click',function(){
+      botones.forEach(function(x){x.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');
+      var n=b.dataset.nivel;
+      notas.forEach(function(a){
+        a.hidden = !(n==='todas' || a.dataset.nivel===n);
+      });
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
