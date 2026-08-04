@@ -209,7 +209,7 @@ a{color:inherit}
 .perfil{border-top:1px solid var(--linea);background:var(--papel-hond)}
 .perfil .contenedor{
   padding-block:clamp(2.5rem,5vw,3.5rem);
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr);
   gap:clamp(1.5rem,4vw,3.5rem);align-items:start;
 }
 .perfil h2{
@@ -220,8 +220,36 @@ a{color:inherit}
   font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:var(--oro);margin-bottom:.5rem;
 }
+.perfil h2{margin-bottom:1rem}
 .perfil p{margin:0 0 1rem;max-width:var(--medida);color:var(--tinta-med)}
-.perfil p:last-child{margin-bottom:0}
+.perfil strong{color:var(--tinta);font-weight:600}
+
+.retrato{margin:0}
+.retrato img{
+  width:100%;height:auto;border-radius:2px;
+  border:1px solid var(--linea);
+  filter:saturate(.92);
+}
+.retrato figcaption{
+  margin-top:.6rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tinta-suave);
+}
+
+.contacto{
+  margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--linea);
+}
+.contacto h3{
+  font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--oro);margin:0 0 .6rem;
+}
+.contacto p{margin-bottom:.6rem}
+.mail{
+  font-family:Spectral,Georgia,serif;font-size:clamp(1.05rem,2.4vw,1.35rem);
+  font-weight:600;text-decoration:none;color:var(--tinta);
+  border-bottom:2px solid var(--oro);padding-bottom:.15rem;
+  word-break:break-word;
+}
+.mail:hover{color:var(--oro)}
 
 /* ---------- Pie ---------- */
 .pie-sitio{background:var(--tinta);color:#C6D0DD;padding-block:2.5rem}
@@ -231,6 +259,11 @@ a{color:inherit}
 .pie-sitio .nombre-pie{font-family:Spectral,Georgia,serif;font-size:1.25rem;color:var(--papel);margin:0 0 .35rem}
 .pie-sitio p{margin:0;font-size:.9rem}
 .enlaces-pie{display:flex;gap:1.25rem;flex-wrap:wrap;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.enlaces-pie a[href^="mailto"]{text-transform:none;letter-spacing:.01em}
+
+/* Las anclas no quedan tapadas por el encabezado fijo */
+html{scroll-behavior:smooth}
+#indice,#sobre-mi,#contacto{scroll-margin-top:7.5rem}
 
 /* ---------- Adaptación a pantallas chicas ---------- */
 @media (max-width:900px){
@@ -238,6 +271,7 @@ a{color:inherit}
   .cabecera .contenedor{flex-direction:column;align-items:flex-start;gap:1rem}
   .caratula .contenedor,
   .perfil .contenedor{grid-template-columns:1fr}
+  .retrato{max-width:340px}
   .titular{max-width:none}
 }
 @media (max-width:620px){
@@ -272,9 +306,9 @@ a{color:inherit}
     </a>
     <nav class="nav" aria-label="Principal">
       <a href="index.html" aria-current="page">Inicio</a>
-      <a href="articulos.html">Artículos</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="#indice">Artículos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </div>
 </header>
@@ -314,6 +348,7 @@ a{color:inherit}
     <div class="contenedor">
       <div class="encabezado-seccion">
         <h2 id="indice">Últimas notas</h2>
+        <!-- Cuando tengas 4 o 5 notas publicadas, descomentá este bloque y el filtro empieza a funcionar solo:
         <div class="filtros" role="group" aria-label="Filtrar por nivel de gobierno">
           <button type="button" data-nivel="todas" aria-pressed="true">Todas</button>
           <button type="button" data-nivel="nacion" aria-pressed="false">Nación</button>
@@ -321,6 +356,7 @@ a{color:inherit}
           <button type="button" data-nivel="municipio" aria-pressed="false">Municipio</button>
           <button type="button" data-nivel="analisis" aria-pressed="false">Análisis</button>
         </div>
+        -->
       </div>
 
       <div id="listado">
@@ -328,39 +364,11 @@ a{color:inherit}
         <!-- REEMPLAZAR: copiá este bloque para cada nota nueva.
              data-nivel debe ser: nacion | provincia | municipio | analisis -->
         <article class="nota" data-nivel="nacion">
-          <div class="foja"><span class="nivel">Nación</span>Foja 018</div>
+          <div class="foja"><span class="nivel">Nación</span>Foja 001</div>
           <div>
             <h3><a href="corrupcion-economia-incoherencia.html">Corrupción, economía e incoherencia: el dilema del discurso público</a></h3>
             <p>El desfasaje entre lo que se declara y lo que se ejecuta, y por qué termina erosionando la capacidad estatal.</p>
             <p class="pie">12 de junio de 2026 · 9 min</p>
-          </div>
-        </article>
-
-        <!-- NOTAS DE EJEMPLO: reemplazalas por las tuyas -->
-        <article class="nota" data-nivel="municipio">
-          <div class="foja"><span class="nivel">Municipio</span>Foja 017</div>
-          <div>
-            <h3><a href="#">Presupuesto municipal: leer el gasto antes de discutir el discurso</a></h3>
-            <p>Guía práctica para interpretar una ordenanza de presupuesto y detectar dónde está la política pública real.</p>
-            <p class="pie">Nota de ejemplo · 7 min</p>
-          </div>
-        </article>
-
-        <article class="nota" data-nivel="provincia">
-          <div class="foja"><span class="nivel">Provincia</span>Foja 016</div>
-          <div>
-            <h3><a href="#">Transferencias provinciales: qué queda del federalismo fiscal</a></h3>
-            <p>Coparticipación, transferencias discrecionales y el margen concreto que le queda a una provincia para planificar.</p>
-            <p class="pie">Nota de ejemplo · 11 min</p>
-          </div>
-        </article>
-
-        <article class="nota" data-nivel="analisis">
-          <div class="foja"><span class="nivel">Análisis</span>Foja 015</div>
-          <div>
-            <h3><a href="#">Digitalizar el trámite no es modernizar el Estado</a></h3>
-            <p>Qué diferencia hay entre poner un formulario en línea y rediseñar el proceso administrativo que hay detrás.</p>
-            <p class="pie">Nota de ejemplo · 6 min</p>
           </div>
         </article>
 
@@ -369,15 +377,26 @@ a{color:inherit}
   </section>
 
   <!-- ============ PERFIL ============ -->
-  <section class="perfil" aria-labelledby="perfil">
+  <section class="perfil" id="sobre-mi" aria-labelledby="perfil">
     <div class="contenedor">
+      <figure class="retrato">
+        <img src="img/juan-pablo-capriotti.jpg"
+             alt="Juan Pablo Capriotti sosteniendo su diploma frente a un edificio de la Universidad Nacional de San Martín."
+             width="800" height="751" loading="lazy">
+        <figcaption>Universidad Nacional de San Martín</figcaption>
+      </figure>
       <div>
         <div class="rubro">Quién escribe</div>
         <h2 id="perfil">Juan Pablo Capriotti</h2>
-      </div>
-      <div>
-        <p>Técnico en administración pública. Escribo sobre políticas públicas y administración del Estado en los tres niveles de gobierno: qué se decide, con qué instrumentos y qué capacidad hay para sostenerlo.</p>
-        <p>La idea de este sitio es simple: publicar análisis que se puedan leer sin ser especialista, pero que no le bajen el precio al tema.</p>
+        <p>Escribo sobre <strong>políticas públicas y administración pública</strong>. Soy técnico en administración pública, formado en la Universidad Nacional de San Martín, y este sitio es donde publico mis análisis.</p>
+        <p>Me interesa lo que pasa entre la decisión y la ejecución: cómo se diseña una política, con qué instrumentos administrativos se lleva adelante y qué capacidad estatal hace falta para sostenerla. Trabajo los tres niveles de gobierno —Nación, provincia y municipio— porque una política rara vez se juega en uno solo.</p>
+        <p>La idea es simple: análisis que se puedan leer sin ser especialista, pero sin bajarle el precio al tema.</p>
+
+        <div class="contacto" id="contacto">
+          <h3>Contacto</h3>
+          <p>Para consultas, colaboraciones o comentarios sobre una nota:</p>
+          <a class="mail" href="mailto:juanpablocapriotti@gmail.com">juanpablocapriotti@gmail.com</a>
+        </div>
       </div>
     </div>
   </section>
@@ -391,9 +410,9 @@ a{color:inherit}
       <p>Administración y política pública · Buenos Aires, Argentina</p>
     </div>
     <nav class="enlaces-pie" aria-label="Enlaces del pie">
-      <a href="articulos.html">Artículos</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="#indice">Artículos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="mailto:juanpablocapriotti@gmail.com">juanpablocapriotti@gmail.com</a>
     </nav>
   </div>
 </footer>
