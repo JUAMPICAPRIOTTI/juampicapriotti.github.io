@@ -116,6 +116,11 @@ a{color:inherit}
   display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
   gap:clamp(2rem,5vw,4rem);align-items:start;
 }
+.imagen-destacada{margin:1.5rem 0 0;grid-column:1 / -1;order:-1}
+.imagen-destacada img{
+  width:100%;height:auto;aspect-ratio:1200/500;object-fit:cover;
+  border:1px solid var(--linea);border-radius:2px;
+}
 .etiqueta{
   display:inline-block;background:var(--oro);color:var(--papel);
   font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
@@ -184,7 +189,7 @@ a{color:inherit}
 .filtros button[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
 
 .nota{
-  display:grid;grid-template-columns:5.5rem minmax(0,1fr);
+  display:grid;grid-template-columns:5.5rem minmax(0,1fr) 13rem;
   gap:clamp(1rem,3vw,2.25rem);
   padding:1.5rem 0 1.5rem;
   border-top:1px solid var(--linea);
@@ -208,6 +213,13 @@ a{color:inherit}
 .nota h3 a{text-decoration:none}
 .nota h3 a:hover{color:var(--oro)}
 .nota p{margin:.6rem 0 0;color:var(--tinta-med);font-size:.98rem;max-width:62ch}
+.miniatura{margin:0;align-self:start}
+.miniatura img{
+  width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;
+  border:1px solid var(--linea);border-radius:2px;
+  transition:opacity .2s ease;
+}
+.nota:hover .miniatura img{opacity:.88}
 .nota .pie{
   margin-top:.75rem;font-size:.76rem;color:var(--tinta-suave);
   font-variant-numeric:tabular-nums;
@@ -279,6 +291,8 @@ html{scroll-behavior:smooth}
   .cabecera .contenedor{flex-direction:column;align-items:flex-start;gap:1rem}
   .caratula .contenedor,
   .perfil .contenedor{grid-template-columns:1fr}
+  .nota{grid-template-columns:5.5rem minmax(0,1fr)}
+  .miniatura{grid-column:1 / -1;order:-1;max-width:360px;margin-bottom:.5rem}
   .retrato{max-width:340px}
   .titular{max-width:none}
 }
@@ -286,6 +300,7 @@ html{scroll-behavior:smooth}
   .barra .contenedor{font-size:.65rem}
   .nota{grid-template-columns:1fr;gap:.5rem}
   .nota::before{display:none}
+  .miniatura{max-width:none}
   .foja{display:flex;gap:.9rem;padding-top:0}
   .foja .nivel{margin-bottom:0}
   .nav{gap:1.1rem}
@@ -327,25 +342,28 @@ html{scroll-behavior:smooth}
   <section class="caratula" aria-labelledby="destacada">
     <div class="contenedor">
       <div>
+        <figure class="imagen-destacada">
+          <a href="semaforo-fiscal.html"><img src="og-semaforo-fiscal.jpg" alt="Ilustración de la nota sobre el índice Semáforo Fiscal." width="1200" height="630" loading="eager"></a>
+        </figure>
         <span class="etiqueta">Nota destacada</span>
         <h2 class="titular" id="destacada">
-          <a href="dos-tipos-audaces.html">Dos tipos audaces</a>
+          <a href="semaforo-fiscal.html">Semáforo Fiscal: qué mide y qué no mide el índice de presión tributaria municipal</a>
         </h2>
         <p class="copete">
-          Kicillof y Milei coincidieron en Nueva York durante la semana de la Asamblea General de la ONU,
-          con agendas separadas, dos relatos enfrentados sobre la economía argentina y la mirada puesta en 2027.
+          La herramienta compara los 52 municipios bonaerenses de más de 60.000 habitantes con un solo número.
+          Su metodología tiene aciertos, pero también decisiones de diseño que limitan lo que el ranking permite concluir.
         </p>
-        <a class="leer" href="dos-tipos-audaces.html">Leer la nota <span>→</span></a>
+        <a class="leer" href="semaforo-fiscal.html">Leer la nota <span>→</span></a>
       </div>
 
       <!-- Ficha: los campos de una carátula de expediente -->
       <aside class="ficha">
         <h2>Ficha de la nota</h2>
         <dl>
-          <div><dt>Tema</dt><dd>Política y relaciones internacionales</dd></div>
-          <div><dt>Nivel de gobierno</dt><dd>Nacional y provincial</dd></div>
-          <div><dt>Publicada</dt><dd>23 de septiembre de 2026</dd></div>
-          <div><dt>Extensión</dt><dd>5 minutos de lectura</dd></div>
+          <div><dt>Tema</dt><dd>Tributos y finanzas municipales</dd></div>
+          <div><dt>Nivel de gobierno</dt><dd>Municipal y provincial</dd></div>
+          <div><dt>Publicada</dt><dd>25 de septiembre de 2026</dd></div>
+          <div><dt>Extensión</dt><dd>7 minutos de lectura</dd></div>
         </dl>
       </aside>
     </div>
@@ -369,6 +387,18 @@ html{scroll-behavior:smooth}
 
       <div id="listado">
 
+        <article class="nota" data-nivel="analisis">
+          <div class="foja"><span class="nivel">Análisis</span></div>
+          <div>
+            <h3><a href="semaforo-fiscal.html">Semáforo Fiscal: qué mide y qué no mide el índice de presión tributaria municipal</a></h3>
+            <p>El índice compara 52 municipios bonaerenses con un solo número. Qué permite concluir ese ranking y qué no.</p>
+            <p class="pie">25 de septiembre de 2026 · 7 min</p>
+          </div>
+          <figure class="miniatura">
+            <a href="semaforo-fiscal.html"><img src="og-semaforo-fiscal.jpg" alt="Ilustración de la nota sobre el índice Semáforo Fiscal." width="1200" height="630" loading="lazy"></a>
+          </figure>
+        </article>
+
         <!-- REEMPLAZAR: copiá este bloque para cada nota nueva.
              data-nivel debe ser: nacion | provincia | municipio | analisis -->
         <article class="nota" data-nivel="analisis">
@@ -378,6 +408,9 @@ html{scroll-behavior:smooth}
             <p>Kicillof y Milei en Nueva York durante la semana de la Asamblea General: dos agendas separadas, dos relatos sobre la economía argentina y 2027 de fondo.</p>
             <p class="pie">23 de septiembre de 2026 · 5 min</p>
           </div>
+          <figure class="miniatura">
+            <a href="dos-tipos-audaces.html"><img src="og-dos-tipos-audaces.jpg" alt="Ilustración de la nota sobre Kicillof y Milei en Nueva York." width="1200" height="630" loading="lazy"></a>
+          </figure>
         </article>
 
         <article class="nota" data-nivel="analisis">
@@ -387,6 +420,9 @@ html{scroll-behavior:smooth}
             <p>Un producto financiero estatal, gratuito y obligatorio para los grandes bancos. Qué gana el Estado, qué gana la ciudadanía y por qué Estados Unidos abrió una investigación.</p>
             <p class="pie">5 de agosto de 2026 · 14 min</p>
           </div>
+          <figure class="miniatura">
+            <a href="pix-brasil.html"><img src="og-pix-brasil.jpg" alt="Imagen institucional del sistema de pagos Pix." width="1200" height="630" loading="lazy"></a>
+          </figure>
         </article>
 
         <article class="nota" data-nivel="nacion">
@@ -396,6 +432,9 @@ html{scroll-behavior:smooth}
             <p>Qué cambia respecto de la Ley 26.737, las dos lecturas constitucionales en tensión y por qué el punto crítico no son los porcentajes sino el registro.</p>
             <p class="pie">4 de agosto de 2026 · 11 min</p>
           </div>
+          <figure class="miniatura">
+            <a href="ley-de-tierras.html"><img src="og-ley-de-tierras.jpg" alt="Ilustración de la nota sobre la reforma de la ley de tierras." width="1200" height="630" loading="lazy"></a>
+          </figure>
         </article>
 
         <article class="nota" data-nivel="nacion">
@@ -405,6 +444,9 @@ html{scroll-behavior:smooth}
             <p>El desfasaje entre lo que se declara y lo que se ejecuta, y por qué termina erosionando la capacidad estatal.</p>
             <p class="pie">12 de junio de 2026 · 9 min</p>
           </div>
+          <figure class="miniatura">
+            <a href="corrupcion-economia-incoherencia.html"><img src="og-corrupcion.jpg" alt="Portada de la nota sobre corrupción, economía e incoherencia." width="1200" height="630" loading="lazy"></a>
+          </figure>
         </article>
 
       </div>
